@@ -50,15 +50,26 @@ print("""
 
  """)
 mi = int(input("Enter monthly amount of your investment: "))
-no_install = int(input(" Enter the total number of installments: "))
-exp_ret = int(input(" Enter the expected growth rate for a year: "))
+no_install = int(input("Enter the total number of installments: "))
+exp_ret = int(input("Enter the expected growth rate for a year: "))
 value_today=int(input("Enter current value of your investment: "))
 
 exp_ret=exp_ret/12
 
 target_value = sumofGP(mi, no_install+1, 1+exp_ret/100)
-print("\nThe target value = " , int(target_value))
+target_value=math.ceil(target_value)
+invest_amount =invest(target_value,value_today)
+invest_amount = math.ceil(invest_amount)
 
-invest_amount=invest(target_value,value_today)
 
-print("You need to invest: ",int(invest_amount))
+def print_value(target_value,value_today,invest_amount):
+    if target_value==value_today:
+        print("Portfolio value is same as target value so invest ",invest_amount)
+    elif target_value > value_today:
+        print("Portfolio value is less than target value ",target_value," so invest",invest_amount)
+    elif target_value < value_today:
+        print("Portfolio value is more than target value ",target_value," so invest",invest_amount)
+
+print_value(target_value,value_today,invest_amount)
+
+
