@@ -1,2 +1,2 @@
-# VPcalculator
-Value averaging Plan calculator for investing in mutual funds
+# VAIcalculator
+Value averaging Investing calculator for investing in mutual funds.
